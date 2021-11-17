@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:cardView="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_margin="10dp"
+
+    cardView:cardCornerRadius="8dp"
+    cardView:cardElevation="8dp"
+    android:layout_height="wrap_content">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:padding="5dp"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="L"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:id="@+id/tvletter"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center_vertical|center_horizontal" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvName"
+        app:layout_constraintStart_toEndOf="@id/tvletter"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:text="Name"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvPhone"
+        android:text="Phone"
+        app:layout_constraintStart_toEndOf="@id/tvletter"
+        app:layout_constraintTop_toBottomOf="@id/tvName" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
