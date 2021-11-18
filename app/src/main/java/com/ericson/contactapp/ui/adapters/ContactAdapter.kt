@@ -1,6 +1,7 @@
 package com.ericson.contactapp.ui.adapters
 
-import android.util.Log
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ericson.contactapp.R
 import com.ericson.contactapp.data.models.Contact
 import com.ericson.contactapp.databinding.ContactLayoutBinding
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class ContactAdapter(private val fragment: Fragment):RecyclerView.Adapter<ContactAdapter.ViewModel>() {
@@ -32,9 +35,6 @@ class ContactAdapter(private val fragment: Fragment):RecyclerView.Adapter<Contac
                 } else {
                     val filteredList: MutableList<Contact> = ArrayList()
                     for (row in list) {
-
-                        // name match condition. this might differ depending on your requirement
-                        // here we are looking for name or phone number match
                         if (row.name.toLowerCase().startsWith(charString.toLowerCase())) {
                             filteredList.add(row)
                         }
@@ -48,8 +48,6 @@ class ContactAdapter(private val fragment: Fragment):RecyclerView.Adapter<Contac
 
             override fun publishResults(charSequence: CharSequence?, filterResults: FilterResults) {
                 listFiltered = filterResults.values as ArrayList<Contact>
-
-                // refresh the list with filtered data
                 notifyDataSetChanged()
             }
         }
@@ -67,8 +65,11 @@ class ContactAdapter(private val fragment: Fragment):RecyclerView.Adapter<Contac
         holder.binding.tvName.text = listFiltered[position].name
         holder.binding.tvPhone.text = listFiltered[position].phoneNumber
         holder.binding.tvletter.text = listFiltered[position].name.toUpperCase().subSequence(0, 1)
-
-
+        val rnd = Random()
+        val color: Int = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            holder.binding.tvletter.backgroundTintList = ColorStateList.valueOf(color)
+        }
         holder.binding.root.setOnClickListener {
             val bundle = bundleOf("contact" to listFiltered[position])
             fragment.findNavController().navigate(R.id.action_contactFragment_to_contactFormFragment, bundle)

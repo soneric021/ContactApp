@@ -22,11 +22,12 @@ class ContactFormFragment : BaseFragment<ContactFormFragmentBinding>(ContactForm
         binding.backbtn.setOnClickListener {
             activity?.onBackPressed()
         }
+
         contactViewModel.message.observe(requireActivity(), {
             when(it){
                  is Result.Success ->{
-                     Toast.makeText(requireContext(), "Se creo tu contacto correctamente", Toast.LENGTH_SHORT).show()
-
+                     Toast.makeText(requireContext(), "Se han guardado sus cambios", Toast.LENGTH_SHORT).show()
+                     activity?.onBackPressed()
                  }
                 is Result.Error -> {
                     Toast.makeText(requireContext(), "Hubo un error al crear su contacto", Toast.LENGTH_SHORT).show()
