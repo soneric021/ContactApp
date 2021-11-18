@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,7 +9,7 @@
         android:id="@+id/tvtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:text="@string/contact"
         android:textSize="30sp"
         android:textColor="@color/black"
@@ -25,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="80dp"
         android:text="@string/my_contacts"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
@@ -36,7 +35,7 @@
         android:id="@+id/rvcontacts"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="180dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvtitle2"
@@ -52,4 +51,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/ic_person_add_black_24dp"/>
+
+    <EditText
+        android:id="@+id/etSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Buscar nombre aqui..."
+        android:padding="15dp"
+        android:drawableStart="@drawable/ic_search_black_24dp"
+        android:background="@drawable/round_edittext"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tvtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+       />
 </androidx.constraintlayout.widget.ConstraintLayout>
